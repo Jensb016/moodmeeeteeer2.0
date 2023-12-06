@@ -21,17 +21,13 @@ error_reporting(E_ALL);
         <div id="block_geel"><h1>MOODMETER</h1></div>
         <div id="block_rood"></div>
     </header>
-
-
     <main>
-    <form method="post" action="handleform.php">
-        <button id="block_groen" type="submit" name="stem" value="1"></button>
-        <button id="block_donkerblauw" type="submit" name="stem" value="2"></button>
-        <button id="block_oranje" type="submit" name="stem" value="3"></button>
-    </form>
-</main>
-</main>
-
+        <form method="post" action="handleform.php">
+            <button id="block_groen" type="submit" name="stem" value="1"><img src="svg/goed.svg"></button>
+            <button id="block_donkerblauw" type="submit" name="stem" value="2"><img src="svg/prima.svg"></button>
+            <button id="block_oranje" type="submit" name="stem" value="3"><img src="svg/slecht.svg"></button>
+        </form>
+    </main>
     <footer>
         <div id="block_lichtoranje"></div>
         <div id="block_paars"></div>

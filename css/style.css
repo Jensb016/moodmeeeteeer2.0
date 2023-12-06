@@ -43,14 +43,18 @@ main {
     width: 100%;
     height: 50vh;
     margin-top: 5vh;
-    display: flex;
-    justify-content: space-between;
 }
+
 main button {
     height: 50vh;
     width: 30vw;
     border: none;
     cursor: pointer;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
 }
 
 #block_groen {
@@ -89,5 +93,14 @@ footer div {
 #block_lichtblauw {
     background-color: #01AEB4;
 }
+
+img {
+    width: 70%;
+    height: 70%;
+    object-fit: cover;
+    scale: 1;
+}
+
+
 
 

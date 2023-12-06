@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Laag_1" data-name="Laag 1" xmlns="http://www.w3.org/2000/svg" viewBox="-200 -200 700 900">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #010101;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <ellipse class="cls-1" cx="49.79" cy="111.53" rx="49.79" ry="111.53"/>
+  <ellipse class="cls-1" cx="245.47" cy="111.53" rx="49.79" ry="111.53"/>
+  <path class="cls-1" d="m147.63,401.34c-80.1,0-145.04-28.99-145.04-64.75s64.94,0,145.04,0,145.04-35.76,145.04,0-64.94,64.75-145.04,64.75Z"/>
+</svg>
