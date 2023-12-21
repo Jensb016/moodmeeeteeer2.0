@@ -1,4 +1,3 @@
-
 <?php
 
 ini_set('display_errors', 1);
@@ -12,7 +11,8 @@ error_reporting(E_ALL);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" media="screen and (min-width: 1050px)">
+    <link rel="stylesheet" href="css/stylemobile.css" media="screen and (max-width: 1050px)">
     <title>moodmeter</title>
 </head>
 <body>
