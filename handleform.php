@@ -30,11 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Redirect to the appropriate page based on the button that was clicked
     if ($stem == 1) {
-        header('Location: pages/bevesteging_groen.php');
+        header('Location: pages/bevesteging_groen.html');
     } elseif ($stem == 2) {
-        header('Location: pages/bevesteging_blauw.php');
+        header('Location: pages/bevesteging_blauw.html');
     } elseif ($stem == 3) {
-        header('Location: pages/bevesteging_rood.php');
+        header('Location: pages/bevesteging_rood.html');
     }
     exit;
 }

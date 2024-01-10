@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;	
+    margin: 0;
+    overflow: hidden;
+    color: white;
+}
+
+header {
+    width: 100%;
+    height: 20vh;
+    justify-content: space-between;
+    display: flex;
+}
+
+header div {
+    height: 20vh;
+    width: 30vw;
+}
+
+header div h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    margin-top: 8vh;
+}
+
+#block_blauw {
+    background-color: #6ECBBD;
+}
+#block_geel {
+    background-color: #FDD164;
+}
+#block_rood {
+    background-color: #F15546;
+}
+
+main div {
+    width: 100%;
+    height: 50vh;
+    margin-top: 5vh;
+}
+
+.mood {
+    background-color: #5481e6;
+}
+
+footer {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer div {
+    height: 20vh;
+    width: 30vw;
+    margin-top: 5vh;
+}
+
+footer a div h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+#block_lichtoranje {
+    background-color: #F6931E;
+}
+
+#block_paars {
+    background-color: #6370B6;
+    height: 35vh;
+    margin: 0;
+    margin-top: -3%;
+}
+
+#block_lichtblauw {
+    background-color: #01AEB4;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
