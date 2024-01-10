@@ -7,6 +7,7 @@
 body{
     font-family: 'Roboto', sans-serif;
     max-width: 80vh;
+    overflow: hidden;
 }
 
 header {
@@ -72,6 +73,27 @@ main form button img {
     object-fit: cover;
     object-position: center;
 }
+
+footer {
+    max-width: 100vh;
+    height: 80vh;
+    justify-content: space-between;
+    flex-direction: column;
+    position: absolute;
+    left: 90%;
+    top: 10%;
+}
+
+footer div {
+    height: 20vh;
+    width: 10vw;
+    background-color: brown;
+    margin-top: 10vh;
+}
+
+
+
+
 
 
 
