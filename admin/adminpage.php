@@ -1,13 +1,21 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Connect to your database
 $db = new PDO('mysql:host=localhost;dbname=moodmeter', 'root', 'root');
 
-// Fetch the data from your moodmeter table
-$query = $db->query('SELECT stemmingwaarde, COUNT(*) as count FROM moodrecord GROUP BY stemmingwaarde');
-$data = $query->fetchAll(PDO::FETCH_ASSOC);
+// Get all records from the joined tables
+$query = $db->prepare("
+    SELECT *
+    FROM moodrecord
+    INNER JOIN enquête ON moodrecord.GebruikerID = enquête.GebruikerID
+    INNER JOIN opleiding ON enquête.OpleidingID = opleiding.OpleidingID
+");
+$query->execute();
 
-// Encode the data into JSON format
-$jsonData = json_encode($data);
+$data = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -19,47 +27,66 @@ $jsonData = json_encode($data);
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 </head>
 <body>
-<div id="chart"></div>
-    <script>
-        // Parse the JSON data
-        var data = JSON.parse('<?php echo $jsonData; ?>');
+<table>
+    <thead>
+        <tr>
+            <th>GebruikerID</th>
+            <th>StemmingWaarde</th>
+            <th>OpleidingNaam</th>
+            <th>Geboortedatum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($data as $row): ?>
+            <tr>
+                <td><?php echo $row['GebruikerID']; ?></td>
+                <td><?php echo $row['StemmingWaarde']; ?></td>
+                <td><?php echo $row['OpleidingNaam']; ?></td>
+                <td><?php echo $row['Geboortedatum']; ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 
-        // Use the data in your chart
-        var options = {
-    series: [{
-        name: 'Mood',
-        data: data.map(function(item) {
-            return item.count;
-        })
-    }],
+<div id="chart"></div>
+
+<script>
+var data = <?php echo json_encode($data); ?>;
+
+var chartData = data.reduce(function(acc, item) {
+    var opleiding = item.OpleidingNaam;
+    var mood = parseInt(item.StemmingWaarde);
+
+    if (!acc[opleiding]) {
+        acc[opleiding] = [0, 0, 0]; // Initialize the array with zeroes for each mood
+    }
+
+    acc[opleiding][mood - 1] += 1; // Add 1 to the corresponding mood
+
+    return acc;
+}, {});
+
+var categories = Object.keys(chartData);
+var series = categories.map(function(opleiding) {
+    return {
+        name: opleiding,
+        data: chartData[opleiding]
+    };
+});
+
+var options = {
     chart: {
         type: 'bar',
-        height: 350
+        height: 350  // Adjust this value to your liking
     },
-    plotOptions: {
-        bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded'
-        },
-    },
+    series: series,
     xaxis: {
-        categories: data.map(function(item) {
-            // Create a mapping for the moods
-            var moodMapping = {
-                '1': 'blij',
-                '2': 'saai',
-                '3': 'boos'
-            };
-
-            // Use the mapping to set the categories
-            return moodMapping[item.stemmingwaarde];
-        }),
-    },
+        categories: ['blij', 'saai', 'boos']
+    }
 };
 
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
-    </script>
+</script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -12,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Get the value from the form
     $stem = $_POST['stem'];
 
-
     try {
         // Insert a new user into the Gebruiker table
         $query = $db->prepare("INSERT INTO Gebruiker (GebruikerID) VALUES (NULL)");
@@ -20,6 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
         // Get the ID of the last inserted user
         $gebruikerID = $db->lastInsertId();
+        
+        // Store the GebruikerID in a session variable
+        $_SESSION["GebruikerID"] = $gebruikerID;
     
         // Insert the data into the MoodRecord table
         $query = $db->prepare("INSERT INTO moodrecord (GebruikerID, Tijd, StemmingWaarde) VALUES (?, NOW(), ?)");
@@ -38,5 +41,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     exit;
 }
-
 ?>

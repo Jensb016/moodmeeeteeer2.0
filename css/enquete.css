@@ -1,0 +1,88 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+
+ }
+
+header{
+   top: 0;
+   height: 10vh;
+   width: 100vw; 
+   background-color: #FDD164;
+   position: relative;
+}
+
+#enquete{
+    text-align: center;
+    color: white;
+}
+
+main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    width: 100vw;
+    margin-top: 2vh;
+    
+}
+
+#opleiding{
+    background-color: #98CB4A;
+    height: 80vh;
+    width: 30vw;
+    margin-left: 1vw;
+}
+
+#opleiding h1, #persoonlijk h1{
+font-size: 1.8rem;
+text-align: center;
+}
+
+input{
+    margin-top: -5vh;
+    margin-left: 10vw;
+    width: 20vw;
+    border: none;
+    border-radius: 5px;
+    font-size: 3rem;
+    padding-left: 1vw;
+    height: 3vh;
+}
+
+#persoonlijk{
+    background-color: #5481E6;
+    height: 80vh;
+    width: 30vw;
+    margin-left: 7vw;
+}
+
+#verstuur{
+    background-color: #F15546;
+    height: 80vh;
+    width: 30vw;
+    margin-right: 1vw;
+    margin-top: 1vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    margin: 1vh;
+}
+
+#geboortedatum{
+    margin-top: 5vh;
+    height: 10vh;
+     position: absolute;
+    left: 31%;
+}
+
